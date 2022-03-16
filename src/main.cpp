@@ -2,9 +2,9 @@
 
 TITRE          : Control Servo Moteur avec Detecteur de Rotation. Test2 de ELTE1069
 AUTEUR         : Franck Nkeubou Awougang
-DATE           : 09/02/2022
+DATE           : 16/03/2022
 DESCRIPTION    : Programme pour le Test de ELTE permettant de controler un système de fuite
-					d'eau dans un sous-sol avec un capteur et un relai pour actionner la
+					d'eau dans un sous-sol avec un capteur (SEN0223) et un relai pour actionner la
 					pompe d'évacuation d'eau.
 VERSION        : 0.0.1
 
@@ -38,6 +38,7 @@ void setup() {
 	pinMode(PIN_SENSOR_SWITCH, INPUT);
 	attachInterrupt(digitalPinToInterrupt(PIN_SENSOR_SWITCH), ActivationPompe, CHANGE);
 	DelaiEnvoi.startTimer(DelaiAttente);
+	EtatPompe = digitalRead(PIN_SENSOR_SWITCH); // L'état par défaut de la pompe est la valeur lue par le capteur.
 }
 
 void loop() {
